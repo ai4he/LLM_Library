@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Library demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .row {
+            margin-top: 20px;
+        }
+    </style>
+  </head>
+  <body>
+
+    <! -- -->
+
+  <div class="container">
+    <h1>Prompt Designer!
+      <i id="loading-icon" class="fas fa-spinner fa-spin" style="display: none;"></i>
+    </h1>
+
+    <! -- Navbar-->
+
+  <!--    <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Prompting</button>
+    </form>
+  </div> 
+</nav> -->
+
+<!-- -->
+
+<div class="row">
+  I am an AI assistant I will help you to learn how to prompting. Please Write a topic of your interest, after we can analyse the answered obtained, then we can find a way to improve the prompting. 
+  Let's try it! 
+  <div class="col">
+    <input type="text" class="form-control" placeholder="What are you intersting in?" aria-label="First name">
+  </div>
+  <div class="col">
+   <!-- <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"> -->
+    <button id="submit-button" class="btn btn-outline-success" type="submit">Prompting</button>
+  </div>
+</div>
+
+<! -- -->
+<div class="row"></div>
+    <div class="card mb-3" style="max-width: 1808px;">
+      <div class="row g-0">
+      <div class="col-md-4">
+        <img src="TeamComputing.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="form-floating">
+                <h4>Original Prompt</h4>
+                <textarea id="previous-prompt" class="form-control"  readonly></textarea>
+          <h5 class="card-title">With your prompt you obtaing:</h5>
+         <div class="form-floating">
+            <textarea class="form-control" placeholder="An AI will answered here." id="previous-response"></textarea>
+             <label for="floatingTextarea">An AI will answered here.</label> 
+          </div>
+        </div>
+
+
+
+
+
+
+      </div>
+      </div>
+    </div>
+    <!-- main-->
+
+
+
+    
+   <!-- <div class="container"> 
+      <div class="row"> -->
+        <div class="card mb-3">
+            <h3 class = "text-center p-3 mb-3 mt-3">Do you want to modify your prompt? </h3>
+         
+            <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="What was missing?" aria-label="First name">
+                </div>
+                <div class="col">
+                 <!-- <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"> -->
+                  <button id="submit-button" class="btn btn-outline-success" type="submit">Submit Feedback</button>
+                </div>
+              </div>
+             
+        </div>
+
+
+
+      
+<!--       <div class="row"></div>
+      <div class="card mb-3" style="max-width: 1808px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="studing2.png" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">AI suggest</h5>
+             <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">An AI will give you some suggestions here.</label>
+              </div>
+              <p class="card-text"><small class="text-body-secondary">Last updated few mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>-->
+ <!--   </div>  
+
+ Carousel-->
+
+<div id="carouselExample" class="carousel slide">
+  <div  id="carouselItems" class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="card mb-3" style="max-width: 1808px;">
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img src="w1.png" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">History of your learning </h5>
+              <p class="card-text"><small class="text-body-secondary">All suggestions will be here. Use the bottons</small></p>
+              <p class="card-text"><small class="text-body-secondary">Last updated few mins ago</small></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">         <!--second card carrousel-->
+       <div class="card mb-3" style="max-width: 1808px;">
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img src="w2.png" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-2">
+            <div class="card-body">
+              <h5 class="card-title">Lesson for your. </h5>
+              <p class="card-text"><small class="text-body-secondary">A lesson will be here. Use the bottons</small></p>
+              <p class="card-text"><small class="text-body-secondary">Last updated few mins ago</small></p>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <img src="w2.png" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-2">
+            <div class="card-body">
+              <h5 class="card-title">A Prompt recommended. </h5>
+              <p id="previous-response" class="card-text"><small class="text-body-secondary">All suggestions will be here. Use the bottons</small></p>
+              <p class="card-text"><small class="text-body-secondary">Last updated few mins ago</small></p>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <img src="w2.png" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-2">
+            <div class="card-body">
+              <h5 class="card-title">The result of modifications </h5>
+              <p class="card-text"><small class="text-body-secondary">You will see the new results here.</small></p>
+              <p class="card-text"><small class="text-body-secondary">Last updated few mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span> 
+   <!-- <span class="btn-bd-primary" aria-hidden="true"></span>-->
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+<!-- end Carousel-->
+<div id="containerAdd1">
+</div>
+<button onclick="addnew()">Click me</button>
+<button onclick="addItem2()">Click me</button>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js" integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+
+<script> 
+
+function addItem2(lessson, lastPrompt, lastResponse){
+
+    $('.carousel-item').removeClass('active');
+    const newcard = document.createElement('DIV');
+    newcard.innerHTML = `
+      <div class="card mb-3" style="max-width: 1808px;">
+        <div class="row g-0">
+          
+          <div class="col-md-4">
+            <div class="card-body">
+              <h5 class="card-title">Lesson </h5>
+              <div class="form-floating">
+            <p class="card-text"><small class="text-body-secondary">`+ lessson + `</small></p>
+          </div>
+              
+              <p class="card-text"><small class="text-body-secondary">Last updated few mins ago</small></p>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="card-body">
+              <h6 class="card-title">Prompt recommended </h6>
+              <p class="card-text"><small class="text-body-secondary"> ` +lastPrompt + `</small></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card-body">
+              <h5 class="card-title"> Result </h5>
+              <p class="card-text"><small class="text-body-secondary"> ` +lastResponse + ` </small></p>
+              <p class="card-text"><small class="text-body-secondary">Last updated few mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    newcard.className = "carousel-item active";
+    document.getElementById('carouselItems').appendChild(newcard);
+
+    } 
+
+    function addItem(){
+      var titlear= ["Lesson", "New Prompt", "Answer"];
+      var lessontext = [];
+      var NewPrompt = [];
+      var NewAnswer = [];
+
+
+
+    const card = document.querySelector('.carouselExample')
+    const newcardbox = document.createElement('DIV');
+    newcardbox.className = 'carousel-inner row';
+    const newcardbody1 = document.createElement('DIV');
+    newcardbody1.className = 'carousel-item active';
+    const newcardbody2 = document.createElement('DIV');
+    newcardbody2.className = 'card mb-3 col';
+    const newcardbody3 = document.createElement('DIV');
+    newcardbody3.className = 'col-md-4 col';
+    const newimage = document.createElement('IMG');
+    newimage.className = 'img-fluid rounded-start';
+    newimage.scr = 'booksColors.png';
+    const newcardbody4 = document.createElement('DIV');
+    newcardbody4.className = 'col-md-8 col';
+    const newcardbody = document.createElement('DIV');
+    newcardbody.className = 'card-body';
+    const newh5 = document.createElement('H5');
+    newh5.className = 'card-title';
+    const newdivtestarea = document.createElement('DIV');
+    newdivtestarea.className = 'form-floating';
+    var texxarea = document.createElement('TEXTAREA');
+    texxarea.className = 'form-control';
+    var newlabel = document.createElement('LABEL');
+    const newp = document.createElement('P');
+    newp.className = 'card-text'
+    newp.innerText = 'Lesson'
+    var newlabel1 = document.createElement('LABEL');
+    const newp1 = document.createElement('P');
+    newp1.className = 'card-text1'
+    newp1.innerText = 'Rcommended Prompt '
+
+    const newp2 = document.createElement('P');
+    newp2.className = 'card-text2'
+    newp2.innerText = 'Result'
+
+
+    newcardbox.appendChild(newcardbody1)
+    newcardbody1.appendChild(newcardbody2)
+    newcardbody2.appendChild(newp)
+    newcardbody1.appendChild(newcardbody3)
+    newcardbody3.appendChild(newp1)
+    newcardbody1.appendChild(newcardbody4)
+    newcardbody4.appendChild(newp2)
+    //newcardbody4.appendChild(newp1)
+
+
+    document.getElementById('carouselExample').appendChild(newcardbox);
+    } 
+
+
+     
+</script>
+
+<script> 
+        var streamEnabled = false;
+        var states = {
+            isFirstInteraction: true,
+            previousPrompt: "",
+            previousResponse: "",
+            lastPrompt: "",
+            lastResponse: "",
+        };
+        
+        $("#submit-button").click(function() {
+            var input = $("#input-field").val();
+            if (states.isFirstInteraction) {
+                states.previousPrompt = input;
+                states.isFirstInteraction = false;
+                $("#submit-button").text("Submit Feedback");  // Change button text after first interaction
+                submitForm(input, streamEnabled);
+            } else {
+                submitForm(input, streamEnabled);
+            }
+        
+            // Clear the input field after every submission
+            $("#input-field").val("");
+        
+            // Update UI based on states
+            $("#previous-prompt").val(states.previousPrompt);
+
+        });
+
+
+
+</script>
+      <script>
+        var session_id = '';
+    
+        async function submitForm(input_val, stream=false) {
+            $("#output").html('Processing...'); 
+            $("#loading-icon").show(); 
+            var outputDiv = document.getElementById('output');
+            var submitParams = {
+                'session_id': session_id,
+                'input_val': input_val
+            }
+            if (typeof stream !== "undefined" && stream) {
+              let params = (new URLSearchParams(submitParams)).toString();
+              let url = '/?stream=true';
+              // let url = '/?';
+              if (params) {
+                url += '&' + params;
+                // url += params;
+              }
+              const eventSource = new EventSource(url);
+      
+              eventSource.onmessage = function(event) {
+                  console.log(event.data);
+                  outputDiv.textContent += event.data;
+              };
+      
+              eventSource.addEventListener('end_paragraph', function(event) {
+                  console.log(event);
+                  let data = JSON.parse(event.data);
+                  data.interState = 'intermediate';
+                  handleData(data);
+              });
+      
+              eventSource.addEventListener('finished', function(event) {
+                  console.log(event);
+                  let data = JSON.parse(event.data);
+                  data.interState = 'finished';
+                  handleData(data);
+                  eventSource.close();
+                  $("#loading-icon").hide();
+              });
+            }
+            else {
+              const response = await fetch('/', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded'
+                  },
+                  body: new URLSearchParams(submitParams)
+              });
+      
+              if (response.ok) {
+                  const data = await response.json();
+                  handleData(data);
+                  $("#loading-icon").hide();
+              } else {
+                  outputDiv.innerHTML = '<p>An error occurred while submitting the form.</p>';
+                  $("#loading-icon").hide();
+              } 
+            }
+        }
+    
+        function handleData(data) {
+          if (data.hasOwnProperty('interState')) {
+            if (data.interState == 'intermediate' || data.interState == 'finished') {
+              processData(data);
+            }
+          } else {
+            processData(data);
+          }
+        }
+    
+        function processData(data) {
+          previousPrompt: "",
+          previousResponse: "",
+          lastPrompt: "",
+          lastResponse: "",
+          lessson: ""
+
+          if (data.hasOwnProperty('session_id')) {
+                session_id = data.session_id;
+                if (data.hasOwnProperty('sections')) {
+                    if (data.sections.hasOwnProperty('GENERATE_RESPONSE')) {
+                        $("#previous-response").val(data.sections.GENERATE_RESPONSE);
+                    }
+                    if (data.sections.hasOwnProperty('GIVE_LESSON')) {
+                        lessson = data.sections.GIVE_LESSON;
+                    }
+                    if (data.sections.hasOwnProperty('GENERATE_UPDATED_PROMPT')) {
+                        lastPrompt = data.sections.GENERATE_UPDATED_PROMPT;
+                    }
+                    if (data.sections.hasOwnProperty('GIVE_NEW_RESPONSE')) {
+                        lastResponse = data.sections.GIVE_NEW_RESPONSE;
+                    }
+                }
+            }
+            addItem2(previousResponse, lessson, lastPrompt, lastResponse)
+        }
+      </script>
+
+   
+  </body>
+</html>
+
+
+
+
