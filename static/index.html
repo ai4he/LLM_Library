@@ -314,38 +314,7 @@ function addItem2(lessson, lastPrompt, lastResponse){
      
 </script>
 
-<script> 
-        var streamEnabled = false;
-        var states = {
-            isFirstInteraction: true,
-            previousPrompt: "",
-            previousResponse: "",
-            lastPrompt: "",
-            lastResponse: "",
-        };
-        
-        $("#submit-button").click(function() {
-            var input = $("#input-field").val();
-            if (states.isFirstInteraction) {
-                states.previousPrompt = input;
-                states.isFirstInteraction = false;
-                $("#submit-button").text("Submit Feedback");  // Change button text after first interaction
-                submitForm(input, streamEnabled);
-            } else {
-                submitForm(input, streamEnabled);
-            }
-        
-            // Clear the input field after every submission
-            $("#input-field").val("");
-        
-            // Update UI based on states
-            $("#previous-prompt").val(states.previousPrompt);
 
-        });
-
-
-
-</script>
       <script>
         var session_id = '';
     
@@ -445,7 +414,38 @@ function addItem2(lessson, lastPrompt, lastResponse){
             addItem2(previousResponse, lessson, lastPrompt, lastResponse)
         }
       </script>
+      <script> 
+        var streamEnabled = false;
+        var states = {
+            isFirstInteraction: true,
+            previousPrompt: "",
+            previousResponse: "",
+            lastPrompt: "",
+            lastResponse: "",
+        };
+        
+        $("#submit-button").click(function() {
+            var input = $("#input-field").val();
+            if (states.isFirstInteraction) {
+                states.previousPrompt = input;
+                states.isFirstInteraction = false;
+                $("#submit-button").text("Submit Feedback");  // Change button text after first interaction
+                submitForm(input, streamEnabled);
+            } else {
+                submitForm(input, streamEnabled);
+            }
+        
+            // Clear the input field after every submission
+            $("#input-field").val("");
+        
+            // Update UI based on states
+            $("#previous-prompt").val(states.previousPrompt);
 
+        });
+
+
+
+</script>
    
   </body>
 </html>
