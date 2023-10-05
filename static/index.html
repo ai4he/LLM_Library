@@ -388,11 +388,7 @@ function addItem2(lessson, lastPrompt, lastResponse){
         }
     
         function processData(data) {
-          previousPrompt: "",
-          previousResponse: "",
-          lastPrompt: "",
-          lastResponse: "",
-          lessson: ""
+
 
           if (data.hasOwnProperty('session_id')) {
                 session_id = data.session_id;
@@ -401,13 +397,13 @@ function addItem2(lessson, lastPrompt, lastResponse){
                         $("#previous-response").val(data.sections.GENERATE_RESPONSE);
                     }
                     if (data.sections.hasOwnProperty('GIVE_LESSON')) {
-                        lessson = data.sections.GIVE_LESSON;
+                        state.lessson = data.sections.GIVE_LESSON;
                     }
                     if (data.sections.hasOwnProperty('GENERATE_UPDATED_PROMPT')) {
-                        lastPrompt = data.sections.GENERATE_UPDATED_PROMPT;
+                        state.lastPrompt = data.sections.GENERATE_UPDATED_PROMPT;
                     }
                     if (data.sections.hasOwnProperty('GIVE_NEW_RESPONSE')) {
-                        lastResponse = data.sections.GIVE_NEW_RESPONSE;
+                        state.lastResponse = data.sections.GIVE_NEW_RESPONSE;
                     }
                 }
             }
@@ -421,7 +417,8 @@ function addItem2(lessson, lastPrompt, lastResponse){
             previousPrompt: "",
             previousResponse: "",
             lastPrompt: "",
-            lastResponse: ""
+            lastResponse: "",
+            lesson: ""
         };
         
         $("#submit-button").click(function() {
