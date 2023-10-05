@@ -224,7 +224,7 @@ function addItem2(){
             <div class="card-body">
               <h5 class="card-title">Lesson </h5>
               <div class="form-floating">
-            <p class="card-text"><small class="text-body-secondary">`+ state.lessson + `</small></p>
+            <p class="card-text"><small class="text-body-secondary">`+ states.lessson + `</small></p>
           </div>
               
               <p class="card-text"><small class="text-body-secondary">Last updated few mins ago</small></p>
@@ -234,14 +234,14 @@ function addItem2(){
           <div class="col-md-4">
             <div class="card-body">
               <h6 class="card-title">Prompt recommended </h6>
-              <p class="card-text"><small class="text-body-secondary"> ` + state.lastPrompt + `</small></p>
+              <p class="card-text"><small class="text-body-secondary"> ` + states.lastPrompt + `</small></p>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="card-body">
               <h5 class="card-title"> Result </h5>
-              <p class="card-text"><small class="text-body-secondary"> ` +state.lastResponse + ` </small></p>
+              <p class="card-text"><small class="text-body-secondary"> ` +states.lastResponse + ` </small></p>
               <p class="card-text"><small class="text-body-secondary">Last updated few mins ago</small></p>
             </div>
           </div>
@@ -397,13 +397,13 @@ function addItem2(){
                         $("#previous-response").val(data.sections.GENERATE_RESPONSE);
                     }
                     if (data.sections.hasOwnProperty('GIVE_LESSON')) {
-                        state.lessson = data.sections.GIVE_LESSON;
+                        states.lessson = data.sections.GIVE_LESSON;
                     }
                     if (data.sections.hasOwnProperty('GENERATE_UPDATED_PROMPT')) {
-                        state.lastPrompt = data.sections.GENERATE_UPDATED_PROMPT;
+                        states.lastPrompt = data.sections.GENERATE_UPDATED_PROMPT;
                     }
                     if (data.sections.hasOwnProperty('GIVE_NEW_RESPONSE')) {
-                        state.lastResponse = data.sections.GIVE_NEW_RESPONSE;
+                        states.lastResponse = data.sections.GIVE_NEW_RESPONSE;
                     }
                 }
             }
