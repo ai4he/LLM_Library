@@ -441,6 +441,17 @@ function addItem2(){
 
         });
 
+        $("#submit-button2").click(function() {
+            var input = $("#input-field1").val();
+            submitForm(input, streamEnabled);
+        
+            // Clear the input field after every submission
+            // $("#input-field").val("");
+        
+            // Update UI based on states
+            $("#previous-prompt").val(states.previousPrompt);
+
+        });
 
 
 </script>
