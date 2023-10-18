@@ -68,8 +68,8 @@
                 <textarea id="previous-prompt" class="form-control"  readonly></textarea>
           <h5 class="card-title">With your prompt you obtaing:</h5>
          <div class="form-floating">
-            <textarea class="form-control" placeholder="An AI will answered here." id="previous-response"></textarea>
-             <label for="floatingTextarea">An AI will answered here.</label> 
+            <textarea class="form-control" placeholder="An AI will answered here. Please wait" id="previous-response"></textarea>
+             <label for="floatingTextarea">An AI will answered here. Please wait</label> 
           </div>
         </div>
 
@@ -428,6 +428,7 @@ function addItem2(){
                 states.isFirstInteraction = false;
                 $("#submit-button").text("Submit Feedback");  // Change button text after first interaction
                 submitForm(input, streamEnabled);
+                
             } else {
                 var input = $("#input-field1").val();
                 submitForm(input, streamEnabled);
@@ -438,6 +439,8 @@ function addItem2(){
         
             // Update UI based on states
             $("#previous-prompt").val(states.previousPrompt);
+          $("#input-field").hide();
+          $("#submit-button").hide();
 
         });
 
@@ -445,8 +448,8 @@ function addItem2(){
             var input = $("#input-field1").val();
             submitForm(input, streamEnabled);
         
-            // Clear the input field after every submission
-            // $("#input-field").val("");
+             Clear the input field after every submission
+             $("#input-field1").val("");
         
             // Update UI based on states
             $("#previous-prompt").val(states.previousPrompt);
