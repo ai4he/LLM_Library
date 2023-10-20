@@ -25,7 +25,7 @@
             Prompt Designer
             <i id="loading-icon" class="fas fa-spinner fa-spin" style="display: none;"></i>
             <div class="spinner-border text-info" role="status">
-              <span class="visually-hidden">Loading...</span>
+              <span id="spinner" class="visually-hidden">Loading...</span>
             </div>
         </h2>
 
@@ -100,6 +100,7 @@
         async function submitForm(input_val, stream=false) {
             $("#output").html('Processing...'); 
             $("#loading-icon").show(); 
+            $("#spinner").show(); 
             var outputDiv = document.getElementById('output');
             var submitParams = {
                 'session_id': session_id,
