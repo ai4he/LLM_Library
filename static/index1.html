@@ -75,6 +75,8 @@
         
         $("#submit-button").click(function() {
             var input = $("#input-field").val();
+            $(".loading-icon").show(); 
+            $(".spinner").show(); 
             if (states.isFirstInteraction) {
                 states.previousPrompt = input;
                 states.isFirstInteraction = false;
