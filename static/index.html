@@ -90,7 +90,9 @@
    <!-- <div class="container"> 
       <div class="row"> -->
         <div class="card mb-3">
-            <h3 class = "text-center p-3 mb-3 mt-3">Do you want to modify your prompt? </h3>
+            <h3 class = "text-center p-3 mb-3 mt-3">Do you want to modify your prompt? 
+              <i id="loading-icon2" class="fas fa-spinner fa-spin" style="display: none;"></i>
+            </h3>
          
             <div class="row">
                 <div class="col">
@@ -322,6 +324,7 @@ function addItem2(){
         async function submitForm(input_val, stream=false) {
             $("#output").html('Processing...'); 
             $("#loading-icon").show(); 
+            $("#loading-icon2").show(); 
             var outputDiv = document.getElementById('output');
             var submitParams = {
                 'session_id': session_id,
@@ -356,6 +359,7 @@ function addItem2(){
                   handleData(data);
                   eventSource.close();
                   $("#loading-icon").hide();
+                  $("#loading-icon2").hide();
               });
             }
             else {
@@ -371,9 +375,11 @@ function addItem2(){
                   const data = await response.json();
                   handleData(data);
                   $("#loading-icon").hide();
+                  $("#loading-icon2").hide();
               } else {
                   outputDiv.innerHTML = '<p>An error occurred while submitting the form.</p>';
                   $("#loading-icon").hide();
+                  $("#loading-icon2").hide();
               } 
             }
         }
