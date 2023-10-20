@@ -99,8 +99,8 @@
     
         async function submitForm(input_val, stream=false) {
             $("#output").html('Processing...'); 
-            $("#loading-icon").show(); 
-            $("#spinner").show(); 
+            $(".loading-icon").show(); 
+            $(".spinner").show(); 
             var outputDiv = document.getElementById('output');
             var submitParams = {
                 'session_id': session_id,
