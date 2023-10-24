@@ -202,7 +202,7 @@
 <!-- end Carousel-->
 <div id="containerAdd1">
 </div>
-<button onclick="addnew()">Click me</button>
+<button id="newQ" onclick="reload()">New question</button>
 <button id="submit-button3" onclick="addItem2()">Click me</button>
 
 
@@ -462,7 +462,12 @@ function addItem2(){
             $("#previous-prompt").val(states.previousPrompt);
 
         });
-
+        function reload(){
+          const button = document.querySelector("button");
+          button.addEventListener("click", () =>{
+            window.location.reload();
+          })
+        }
 
 </script>
    
