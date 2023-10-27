@@ -203,7 +203,7 @@
 <div id="containerAdd1">
 </div>
 <button id="newQ" onclick="reload()">New question</button>
-<button id="submit-button3" onclick="addItem2()">Click me</button>
+<!-- <button id="submit-button3" onclick="addItem2()">Click me</button> -->
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js" integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -463,7 +463,7 @@ function addItem2(){
 
         });
         function reload(){
-          const button = document.querySelector("button");
+          const button = document.querySelector("#newQ");
           button.addEventListener("click", () =>{
             window.location.reload(true);
           })
