@@ -387,10 +387,10 @@ function addItem2(){
         function handleData(data) {
           if (data.hasOwnProperty('interState')) {
             if (data.interState == 'intermediate' || data.interState == 'finished') {
-              processData1(data);
+              processData(data);
             }
           } else {
-            processData(data);
+            processData1(data);
           }
         }
     
