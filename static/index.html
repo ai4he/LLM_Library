@@ -387,7 +387,7 @@ function addItem2(){
         function handleData(data) {
           if (data.hasOwnProperty('interState')) {
             if (data.interState == 'intermediate' || data.interState == 'finished') {
-              processData(data);
+              processData1(data);
             }
           } else {
             processData(data);
@@ -418,6 +418,31 @@ function addItem2(){
         }
 
 
+
+        function processData1(data) {
+
+
+          if (data.hasOwnProperty('session_id')) {
+                session_id = data.session_id;
+                if (data.hasOwnProperty('sections')) {
+                    if (data.sections.hasOwnProperty('GENERATE_RESPONSE')) {
+                        $("#previous-response").val(data.sections.GENERATE_RESPONSE);
+                    }
+                    if (data.sections.hasOwnProperty('GIVE_LESSON')) {
+                        states.lessson = data.sections.GIVE_LESSON;
+                    }
+                    if (data.sections.hasOwnProperty('GENERATE_UPDATED_PROMPT')) {
+                        states.lastPrompt = data.sections.GENERATE_UPDATED_PROMPT;
+                    }
+                    if (data.sections.hasOwnProperty('GIVE_NEW_RESPONSE')) {
+                        states.lastResponse = data.sections.GIVE_NEW_RESPONSE;
+                    }
+                }
+            }
+          
+        }
+
+        
         var streamEnabled = false;
         var states = {
             isFirstInteraction: true,
