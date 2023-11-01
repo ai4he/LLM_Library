@@ -417,8 +417,101 @@ function addItem2(){
             addItem2()
         }
 
+        async function submitForm1(input_val, stream=false) {
+            $("#output").html('Processing...'); 
+            $("#loading-icon").show(); 
+            $("#loading-icon2").show(); 
+            var outputDiv = document.getElementById('output');
+            var submitParams = {
+                'session_id': session_id,
+                'input_val': input_val
+            }
+            if (typeof stream !== "undefined" && stream) {
+              let params = (new URLSearchParams(submitParams)).toString();
+              let url = '/?stream=true';
+              // let url = '/?';
+              if (params) {
+                url += '&' + params;
+                // url += params;
+              }
+              const eventSource = new EventSource(url);
+      
+              eventSource.onmessage = function(event) {
+                  console.log(event.data);
+                  outputDiv.textContent += event.data;
+              };
+      
+              eventSource.addEventListener('end_paragraph', function(event) {
+                  console.log(event);
+                  let data = JSON.parse(event.data);
+                  data.interState = 'intermediate';
+                  handleData1(data);
+              });
+      
+              eventSource.addEventListener('finished', function(event) {
+                  console.log(event);
+                  let data = JSON.parse(event.data);
+                  data.interState = 'finished';
+                  handleData1(data);
+                  eventSource.close();
+                  $("#loading-icon").hide();
+                  $("#loading-icon2").hide();
+              });
+            }
+            else {
+              const response = await fetch('/', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded'
+                  },
+                  body: new URLSearchParams(submitParams)
+              });
+      
+              if (response.ok) {
+                  const data = await response.json();
+                  handleData1(data);
+                  $("#loading-icon").hide();
+                  $("#loading-icon2").hide();
+              } else {
+                  outputDiv.innerHTML = '<p>An error occurred while submitting the form.</p>';
+                  $("#loading-icon").hide();
+                  $("#loading-icon2").hide();
+              } 
+            }
+        }
+    
+        function handleData1(data) {
+          if (data.hasOwnProperty('interState')) {
+            if (data.interState == 'intermediate' || data.interState == 'finished') {
+              processData1(data);
+            }
+          } else {
+            processData1(data);
+          }
+        }
+    
+        function processData(data) {
 
 
+          if (data.hasOwnProperty('session_id')) {
+                session_id = data.session_id;
+                if (data.hasOwnProperty('sections')) {
+                    if (data.sections.hasOwnProperty('GENERATE_RESPONSE')) {
+                        $("#previous-response").val(data.sections.GENERATE_RESPONSE);
+                    }
+                    if (data.sections.hasOwnProperty('GIVE_LESSON')) {
+                        states.lessson = data.sections.GIVE_LESSON;
+                    }
+                    if (data.sections.hasOwnProperty('GENERATE_UPDATED_PROMPT')) {
+                        states.lastPrompt = data.sections.GENERATE_UPDATED_PROMPT;
+                    }
+                    if (data.sections.hasOwnProperty('GIVE_NEW_RESPONSE')) {
+                        states.lastResponse = data.sections.GIVE_NEW_RESPONSE;
+                    }
+                }
+            }
+            addItem2()
+        }
         function processData1(data) {
 
 
@@ -459,11 +552,11 @@ function addItem2(){
                 states.previousPrompt = input;
                 states.isFirstInteraction = false;
                 $("#submit-button").text("Submit Feedback");  // Change button text after first interaction
-                submitForm(input, streamEnabled);
+                submitForm1(input, streamEnabled);
                 
             } else {
                 var input = $("#input-field1").val();
-                submitForm(input, streamEnabled);
+                submitForm1(input, streamEnabled);
             }
         
             // Clear the input field after every submission
