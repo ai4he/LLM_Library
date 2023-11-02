@@ -271,6 +271,11 @@ function addItem2(){
     newcard.className = "carousel-item active";
     document.getElementById('carouselItems').appendChild(newcard);
 
+    const new_refer =document.createElement(‘DIV’);
+    new_refer.innerHTML= `
+	    <p class="card-text"><small class="text-body-secondary"> ` +states.lastReference + ` </small></p>
+    `;    
+    document.getElementById('').appendChild(new_refer);
     } 
 
     function addItem(){
@@ -525,6 +530,9 @@ function addItem2(){
                     if (data.sections.hasOwnProperty('GIVE_NEW_RESPONSE')) {
                         states.lastResponse = data.sections.GIVE_NEW_RESPONSE;
                     }
+                    If (data.sections.hasOwnProperty(‘GENERATE_REFERENCE’)){
+	                      states.lastReference = data.sections.GENERATE_REFERENCE;
+                    }     
                 }
             }
             addItem2()
@@ -547,6 +555,9 @@ function addItem2(){
                     if (data.sections.hasOwnProperty('GIVE_NEW_RESPONSE')) {
                         states.lastResponse = data.sections.GIVE_NEW_RESPONSE;
                     }
+                    If (data.sections.hasOwnProperty(‘GENERATE_REFERENCE’)){
+	                      states.lastReference = data.sections.GENERATE_REFERENCE;
+                    }                  
                 }
             }
           
@@ -560,6 +571,7 @@ function addItem2(){
             previousResponse: "",
             lastPrompt: "",
             lastResponse: "",
+            lastReference: "",
             lesson: ""
         };
         
