@@ -271,11 +271,11 @@ function addItem2(){
     newcard.className = "carousel-item active";
     document.getElementById('carouselItems').appendChild(newcard);
 
-    const new_refer =document.createElement('DIV');
-    new_refer.innerHTML= `
-	    <p class="card-text"><small class="text-body-secondary"> ` +states.lastReference + ` </small></p>
-    `;    
-    document.getElementById('refer').appendChild(new_refer);
+    // const new_refer =document.createElement('DIV');
+    // new_refer.innerHTML= `
+	   //  <p class="card-text"><small class="text-body-secondary"> ` +states.lastReference + ` </small></p>
+    // `;    
+    // document.getElementById('refer').appendChild(new_refer);
     } 
 
     function addItem(){
@@ -531,7 +531,13 @@ function addItem2(){
                         states.lastResponse = data.sections.GIVE_NEW_RESPONSE;
                     }
                     if (data.sections.hasOwnProperty('SUGGEST_REFERENCE')){
-	                      states.lastReference = data.sections.SUGGEST_REFERENCE;
+	                states.lastReference = data.sections.SUGGEST_REFERENCE;
+			$("#refer").val(data.sections.SUGGEST_REFERENCE);
+                    }     
+
+                    if (data.sections.hasOwnProperty('SUGGEST_INITIAL_REFERENCES')){
+	                states.lastInitialReferences = data.sections.SUGGEST_INITIAL_REFERENCES;
+			$("#refer").val(data.sections.SUGGEST_INITIAL_REFERENCES);
                     }     
                 }
             }
@@ -557,7 +563,12 @@ function addItem2(){
                     }
                     if (data.sections.hasOwnProperty('SUGGEST_REFERENCE')) {
 	                states.lastReference = data.sections.SUGGEST_REFERENCE;
-                    }                  
+			$("#refer").val(data.sections.SUGGEST_REFERENCE);
+                    }
+                    if (data.sections.hasOwnProperty('SUGGEST_INITIAL_REFERENCES')) {
+	                states.lastReference = data.sections.SUGGEST_INITIAL_REFERENCES;
+			$("#refer").val(data.sections.SUGGEST_INITIAL_REFERENCES);
+                    }
                 }
             }
           
