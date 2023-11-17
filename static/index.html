@@ -257,7 +257,7 @@ function addItem2(){
               <p class="card-text"><small class="text-body-secondary"> ` + states.lastPrompt + `</small></p>
 	      <br>
 	      <h6 class="card-title">References </h6>
-	      <p id=refer class="card-text"><small class="text-body-secondary"> ` +states.lastReference + ` </small></p>
+	      <p id="refer1" class="card-text"><small class="text-body-secondary"> ` +states.lastReference + ` </small></p>
 
        	
             </div>
@@ -537,7 +537,7 @@ function addItem2(){
                     }
                     if (data.sections.hasOwnProperty('SUGGEST_REFERENCE')){
 	                states.lastReference = data.sections.SUGGEST_REFERENCE;
-			$("#refer").val(data.sections.SUGGEST_REFERENCE);
+			$("#refer1").val(data.sections.SUGGEST_REFERENCE);
                     }     
 
                     if (data.sections.hasOwnProperty('SUGGEST_INITIAL_REFERENCES')){
