@@ -1,0 +1,135 @@
+body{
+    background-color:bisque;
+    font-family: 'Arial';
+}
+
+h1{
+    font-size: 50px;
+}
+
+img{
+    width: 50%;
+}
+
+*{
+    margin :0;
+    box-sizing: border-box;
+
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 600px;
+    margin: 80px auto;
+    border: 3px solid;
+
+    display: grid;
+    /*grid-template-columns: 20% 40% 40%;
+    grid-template-rows: 200px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);*/
+    grid-template-areas:
+        "e1 e1 e1 e17 e17 e17"
+        "e2 e2 e2 e16 e16 e16"
+        "e4 e5 e6 e16 e16 e16"
+        "e7 e7 e7 e16 e16 e16"
+        "e8 e9 e10 e3 e3 e3"
+        "e11 e11 e11 e3 e3 e3"
+        "e12 e13 e14 e3 e3 e3"
+        "e15 e15 e15 e18 e18 e18"
+    ;
+
+}    
+.element {
+    color:#fff;
+    font-size: 40px;
+    text-align:center;
+    /* width: 200px;
+    height: 100px;*/
+
+    display: flex;
+    
+    justify-content: center; /*flex-start , flex-end , left , right , space-between ,  space-evenly , center, space-around */
+    align-items: center;
+
+}
+
+.element--1{
+    background-color: slateblue;
+    grid-area: e1;
+    /*grid-row: 1/3;*/
+}
+
+.element--2{
+    background-color: goldenrod;
+    grid-area: e2;
+    /*grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;*/
+}
+
+
+.element--3{
+    background-color: seagreen;
+    grid-area: e3;
+    font-size: 20px;
+}
+
+.element--4{
+    grid-area: e4;
+}
+
+.element--5{
+    grid-area: e5;
+}
+
+.element--6{
+    grid-area: e6;
+}
+.element--7{
+    background-color: sienna;
+    grid-area: e7;
+}
+.element--8{
+    grid-area: e8;
+}
+.element--9{
+    grid-area: e9;
+}
+
+.element--10{
+    grid-area: e10;
+}
+
+.element--11{
+    grid-area: e11;
+}
+
+.element--12{
+    grid-area: e12;
+}
+
+.element--13{
+    grid-area: e13;
+}
+.element--14{
+    grid-area: e14;
+}
+.element--15{
+    grid-area: e15;
+}
+.element--16{
+    grid-area: e16;
+    font-size: medium;
+}
+.element--117{
+    grid-area: e17;
+}
+.element--18{
+    grid-area: e18;
+}
+/*.element--{
+    grid-area: e;
+}*/
