@@ -44,10 +44,10 @@
 <!-- -->
 
 <div class="row">
-  I am an AI assistant I will help you to learn how to prompting. Please Write a topic of your interest, after we can analyse the answered obtained, then we can find a way to improve the prompting. 
+  I am an AI assistant I will help you learn how to prompt. Please Write a topic of your interest, after we can analyze the answers obtained, then we can find a way to improve the prompting. 
   Let's try it! 
   <div class="col">
-    <input id="input-field" type="text" class="form-control" placeholder="What are you intersting in?" aria-label="First name">
+    <input id="input-field" type="text" class="form-control" placeholder="What are you interesting in?" aria-label="First name">
   </div>
   <div class="col">
    <!-- <input type="text" class="form-control" placeholder="Last name" aria-label="Last name"> -->
@@ -61,6 +61,8 @@
       <div class="row g-0">
       <div class="col-md-4">
         <img src="/static/img/TeamComputing.png" class="img-fluid rounded-start" alt="...">
+
+	<p id = "Identificador" class="card-text"><medium class="text-body-secondary">Your ID will appear here</medium></p>
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -435,6 +437,7 @@ function addItem2(){
 
           if (data.hasOwnProperty('session_id')) {
                 session_id = data.session_id;
+		  $("#identificador").html(session_id);
                 if (data.hasOwnProperty('sections')) {
                     if (data.sections.hasOwnProperty('GENERATE_RESPONSE')) {
                         $("#previous-response").val(data.sections.GENERATE_RESPONSE);
