@@ -434,8 +434,6 @@ function addItem2(){
         }
     
         function processData(data) {
-
-
           if (data.hasOwnProperty('session_id')) {
                 session_id = data.session_id;
 		  $("#identificador").val(data.session_id);
@@ -531,8 +529,6 @@ function addItem2(){
         }
     
         function processData(data) {
-
-
           if (data.hasOwnProperty('session_id')) {
                 session_id = data.session_id;
 		$("#identificador").val(data.session_id);
@@ -562,11 +558,11 @@ function addItem2(){
             }
             addItem2()
         }
+	      
         function processData1(data) {
-
-
           if (data.hasOwnProperty('session_id')) {
                 session_id = data.session_id;
+		  $("#identificador").val(data.session_id);
                 if (data.hasOwnProperty('sections')) {
                     if (data.sections.hasOwnProperty('GENERATE_RESPONSE')) {
                         $("#previous-response").val(data.sections.GENERATE_RESPONSE);
