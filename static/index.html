@@ -437,7 +437,7 @@ function addItem2(){
 
           if (data.hasOwnProperty('session_id')) {
                 session_id = data.session_id;
-		  $("#identificador").html(session_id);
+		  $("#identificador").val(data.session_id);
                 if (data.hasOwnProperty('sections')) {
                     if (data.sections.hasOwnProperty('GENERATE_RESPONSE')) {
                         $("#previous-response").val(data.sections.GENERATE_RESPONSE);
