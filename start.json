@@ -80,8 +80,8 @@
               "system": "In case I do not have more feedback, you will provide me with an integrated lesson that covers all your previous advice.",
               "user": "",
               "type": "text",
-              "direction": "end",
-              "state": "end"
+              "direction": "output",
+              "state": "main"
           }
     }
 }
