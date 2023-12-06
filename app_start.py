@@ -16,7 +16,8 @@ def get_stop_tokens():
 
 def get_finish_tokens():
   keys = list(state_metadata['states'].keys())
-  return [keys[-1]]
+  # return [keys[-1]]
+  return []
 
 def get_decision_tokens():
   return [key for key in state_metadata['states'] if state_metadata['states'][key]['direction'] == 'loop']
